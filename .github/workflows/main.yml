@@ -39,7 +39,6 @@ jobs:
       
       - name: build and deploy site 
         run: |
-          env
           npm install -g @angular/cli
           cd frontEnd
           npm install
