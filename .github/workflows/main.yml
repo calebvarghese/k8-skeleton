@@ -43,7 +43,7 @@ jobs:
           cd frontEnd
           npm install 
           ng build
-          bucket=$(jq .${GITHUB_REF##*/}.siteBucket ../aws/output.json | tr -d '"')
+          bucket=$(jq .${GITHUB_REF##*/}.siteBucket ../backend/aws/output.json | tr -d '"')
           aws s3 rm --recursive s3://${bucket}
           aws s3 sync dist/site s3://${bucket} --acl public-read
           distID=$(jq .${GITHUB_REF##*/}.siteDistributionID ../aws/output.json | tr -d '"')
