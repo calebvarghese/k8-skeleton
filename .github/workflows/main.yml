@@ -31,7 +31,7 @@ jobs:
           aws configure set default.region us-east-1 --profile default
       - name: run cdk deploy
         run: |
-          cd aws
+          cd backend/aws
           npm install
           export STACK_NAME=${GITHUB_REF##*/}
           cdk bootstrap
