@@ -46,5 +46,5 @@ jobs:
           bucket=$(jq .${GITHUB_REF##*/}.siteBucket ../backend/aws/output.json | tr -d '"')
           aws s3 rm --recursive s3://${bucket}
           aws s3 sync dist/site s3://${bucket} --acl public-read
-          distID=$(jq .${GITHUB_REF##*/}.siteDistributionID ../aws/output.json | tr -d '"')
+          distID=$(jq .${GITHUB_REF##*/}.siteDistributionID ../backend/aws/output.json | tr -d '"')
           aws cloudfront create-invalidation --distribution-id ${distID} --paths "/*"
