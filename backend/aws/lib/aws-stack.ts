@@ -9,8 +9,7 @@ import * as origins from 'aws-cdk-lib/aws-cloudfront-origins'
 export class AwsStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
-
-
+    
     // create bucket and cloud formation for portal SPA hosting
     const siteBucket = new s3.Bucket(this, 'site-bucket',{
         websiteIndexDocument: 'index.html',
