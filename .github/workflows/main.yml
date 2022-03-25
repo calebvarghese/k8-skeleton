@@ -1,0 +1,50 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: 
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+ CDK-Deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: install & configure cdk
+        run: |
+          npm install -g aws-cdk 
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}  --profile default
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile default
+          aws configure set default.region us-east-1 --profile default
+      - name: run cdk deploy
+        run: |
+          cd aws
+          npm install
+          export STACK_NAME=${GITHUB_REF##*/}
+          cdk bootstrap
+          cdk deploy --outputs-file output.json --require-approval never
+      
+      - name: build and deploy site 
+        run: |
+          npm install -g @angular/cli
+          cd site
+          npm install 
+          ng build
+          bucket=$(jq .${GITHUB_REF##*/}.siteBucket ../aws/output.json | tr -d '"')
+          aws s3 rm --recursive s3://${bucket}
+          aws s3 sync dist/site s3://${bucket} --acl public-read
+          distID=$(jq .${GITHUB_REF##*/}.siteDistributionID ../aws/output.json | tr -d '"')
+          aws cloudfront create-invalidation --distribution-id ${distID} --paths "/*"
