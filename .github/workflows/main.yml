@@ -45,6 +45,6 @@ jobs:
           ng build
           bucket=$(jq .${GITHUB_REF##*/}.siteBucket ../backend/aws/output.json | tr -d '"')
           aws s3 rm --recursive s3://${bucket}
-          aws s3 sync dist/site s3://${bucket} --acl public-read
+          aws s3 sync dist/site s3://${bucket} --acl public-read --request-payer requester
           distID=$(jq .${GITHUB_REF##*/}.siteDistributionID ../backend/aws/output.json | tr -d '"')
           aws cloudfront create-invalidation --distribution-id ${distID} --paths "/*" 
