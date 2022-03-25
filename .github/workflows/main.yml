@@ -39,12 +39,13 @@ jobs:
       
       - name: build and deploy site 
         run: |
+          env
           npm install -g @angular/cli
           cd frontEnd
-          npm install && echo NPM INSTALL
-          ng build && echo NG BUILD
-          bucket=$(jq .${GITHUB_REF##*/}.siteBucket ../backend/aws/output.json | tr -d '"') && echo BUCKET
-          aws s3 rm --recursive s3://${bucket} && echo here1
-          aws s3 sync dist/site s3://${bucket} --acl public-read && echo here2
-          distID=$(jq .${GITHUB_REF##*/}.siteDistributionID ../backend/aws/output.json | tr -d '"') && echo here3
-          aws cloudfront create-invalidation --distribution-id ${distID} --paths "/*" && echo here4
+          npm install
+          ng build
+          bucket=$(jq .${GITHUB_REF##*/}.siteBucket ../backend/aws/output.json | tr -d '"')
+          aws s3 rm --recursive s3://${bucket}
+          aws s3 sync dist/site s3://${bucket} --acl public-read
+          distID=$(jq .${GITHUB_REF##*/}.siteDistributionID ../backend/aws/output.json | tr -d '"')
+          aws cloudfront create-invalidation --distribution-id ${distID} --paths "/*" 
