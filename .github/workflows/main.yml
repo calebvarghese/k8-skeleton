@@ -40,7 +40,7 @@ jobs:
       - name: build and deploy site 
         run: |
           npm install -g @angular/cli
-          cd site
+          cd frontEnd
           npm install 
           ng build
           bucket=$(jq .${GITHUB_REF##*/}.siteBucket ../aws/output.json | tr -d '"')
