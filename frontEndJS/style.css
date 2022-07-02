@@ -7,31 +7,36 @@
     display: var(--grid);
     grid-gap: var(--tenpx);
     grid-template-columns: repeat(5, 200px);
-    grid-template-rows: repeat(3, 200px);
+    grid-template-rows: repeat(3, 400px);
     grid-template-areas: 
-        "a a a a a"
-        "b b b b b"
-        "c c c c c";
+        "a a b b b"
+        "a a b b b"
+        "a a b b b";
+        /* 
+           Summary of person is B, 
+           Resume box is C */
 }
 
 #a {
-    grid-area: c;
+    grid-area: a;
     z-index: 15;
     font-size: var(--em2);
     display: var(--grid);
     display: inline-flex;
     justify-content: var(--center);
     align-items: var(--center);
+    background-color:white;
 }
 
 #b {
-    grid-area: c;
+    grid-area: b;
     z-index: 15;
     font-size: var(--em2);
     display: var(--grid);
     display: inline-flex;
     justify-content: var(--center);
     align-items: var(--center);
+    background-color:#BCFD4C;
 }
 
 #c {
@@ -44,8 +49,18 @@
     align-items: var(--center);
 }
 
+#d {
+    grid-area: d;
+    z-index: 15;
+    font-size: var(--em2);
+    display: var(--grid);
+    display: inline-flex;
+    justify-content: var(--center);
+    align-items: var(--center);
+}
+
 body {
     color: var(--black);
-    background: black;
+    background: #6E6E6E;
     font-family: 'Roboto', sans-serif;    
 }
