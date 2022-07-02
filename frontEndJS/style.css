@@ -1,0 +1,51 @@
+#grid {
+    z-index: 10;
+    margin:var(--twentypx) auto var(--twentypx) auto;
+    width:var(--tenfortypx);
+    height:auto;
+    
+    display: var(--grid);
+    grid-gap: var(--tenpx);
+    grid-template-columns: repeat(5, 200px);
+    grid-template-rows: repeat(3, 200px);
+    grid-template-areas: 
+        "a a a a a"
+        "b b b b b"
+        "c c c c c";
+}
+
+#a {
+    grid-area: c;
+    z-index: 15;
+    font-size: var(--em2);
+    display: var(--grid);
+    display: inline-flex;
+    justify-content: var(--center);
+    align-items: var(--center);
+}
+
+#b {
+    grid-area: c;
+    z-index: 15;
+    font-size: var(--em2);
+    display: var(--grid);
+    display: inline-flex;
+    justify-content: var(--center);
+    align-items: var(--center);
+}
+
+#c {
+    grid-area: c;
+    z-index: 15;
+    font-size: var(--em2);
+    display: var(--grid);
+    display: inline-flex;
+    justify-content: var(--center);
+    align-items: var(--center);
+}
+
+body {
+    color: var(--black);
+    background: black;
+    font-family: 'Roboto', sans-serif;    
+}
