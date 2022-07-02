@@ -15,7 +15,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
- CDK-Deploy:
+ deploy:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -25,26 +25,11 @@ jobs:
 
       - name: install & configure cdk
         run: |
-          npm install -g aws-cdk 
-          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}  --profile default
-          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} --profile default
-          aws configure set default.region us-east-1 --profile default
+          echo install and configure cdk
       - name: run cdk deploy
         run: |
-          cd backend/aws
-          npm install
-          export STACK_NAME=${GITHUB_REF##*/}
-          cdk bootstrap
-          cdk deploy --outputs-file output.json --require-approval never
+          echo run cdk deploy
       
       - name: build and deploy site 
         run: |
-          npm install -g @angular/cli
-          cd frontEnd
-          npm install
-          ng build
-          bucket=$(jq .${GITHUB_REF##*/}.siteBucket ../backend/aws/output.json | tr -d '"')
-          aws s3 rm --recursive s3://${bucket}
-          aws s3 sync dist/site s3://${bucket} --acl public-read --request-payer requester
-          distID=$(jq .${GITHUB_REF##*/}.siteDistributionID ../backend/aws/output.json | tr -d '"')
-          aws cloudfront create-invalidation --distribution-id ${distID} --paths "/*" 
+          echo build and deploy site
