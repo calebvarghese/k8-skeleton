@@ -9,7 +9,7 @@ on:
 
 
 jobs:
- deploy:
+ deploy-backend:
     runs-on: ubuntu-latest
 
     steps:
