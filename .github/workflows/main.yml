@@ -20,16 +20,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: install & configure cdk
+      - name: install & configure terraform 
         run: |
-          echo install and configure cdk
+          sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+          sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+          sudo apt-get update && sudo apt-get install terraform
+          terraform
+
       - name: run cdk deploy
         run: |
           echo run cdk deploy
+          terraform --version
       
       - name: build and deploy site 
         run: |
           echo build and deploy site
+          terraform --version
+          
