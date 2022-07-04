@@ -3,64 +3,124 @@
     margin:var(--twentypx) auto var(--twentypx) auto;
     width:var(--tenfortypx);
     height:auto;
-    
     display: var(--grid);
+    align-items: var(--start);
     grid-gap: var(--tenpx);
     grid-template-columns: repeat(5, 200px);
-    grid-template-rows: repeat(3, 400px);
+    grid-template-rows: repeat(3, var(--gHight));
     grid-template-areas: 
         "a a b b b"
         "a a b b b"
         "a a b b b";
-        /* 
-           Summary of person is B, 
-           Resume box is C */
 }
 
 #a {
     grid-area: a;
     z-index: 15;
-    font-size: var(--em2);
     display: var(--grid);
     display: inline-flex;
-    justify-content: var(--center);
-    align-items: var(--center);
-    background-color:white;
+    background-color: var(--aColor);
+    color: var(--aTextColor);
 }
 
 #b {
     grid-area: b;
     z-index: 15;
-    font-size: var(--em2);
+    padding: 0px 35px;
     display: var(--grid);
     display: inline-flex;
-    justify-content: var(--center);
-    align-items: var(--center);
-    background-color:#BCFD4C;
-}
-
-#c {
-    grid-area: c;
-    z-index: 15;
-    font-size: var(--em2);
-    display: var(--grid);
-    display: inline-flex;
-    justify-content: var(--center);
-    align-items: var(--center);
-}
-
-#d {
-    grid-area: d;
-    z-index: 15;
-    font-size: var(--em2);
-    display: var(--grid);
-    display: inline-flex;
-    justify-content: var(--center);
-    align-items: var(--center);
+    background-color: var(--bColor);
+    color: var(--bTextColor);
+    
 }
 
 body {
     color: var(--black);
-    background: #6E6E6E;
-    font-family: 'Roboto', sans-serif;    
+    background: var(--backColor);
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    padding: 0.01em 16px;
+    align-self: start;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.center {
+    text-align: center!important;
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.5;
+    display: block;
+    margin-block-start: 0.20em;
+}
+
+hr {
+    border: 0;
+}
+
+.big {
+    display: block;
+    margin-block-start: 0.75em;
+}
+
+.jobTime {
+    font-size: 22px;
+    font-weight: bold;
+    display: block;
+    margin-block-start: 0.67em;
+}
+span b {
+    font-size: 15px;
+    font-weight: normal;
+    float:right;
+    position:relative;
+    top: 10px;
+}
+
+.wrapper{
+    text-align: center;
+    padding-top: 5px;
+}
+
+.wrapper .icon{
+  background-color: #ffffff00; /* transparent, dont change */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 23px;
+  display: inline-block;
+  cursor: pointer;
+  color: var(--socialIcon);
+  text-decoration: none;
+}
+
+.wrapper .linkedin:hover {
+  background-color: #0A66C2;
+  color: var(--socialHover);
+}
+
+.wrapper .github:hover {
+  background-color: #333333;
+  color: var(--socialHover);
+}
+
+.wrapper .stack-overflow:hover {
+  background-color: #F48024;
+  color: var(--socialHover);
+}
+
+.wrapper .email:hover {
+  background-color: #de463b;
+  color: var(--socialHover);
+}
+
+.wrapper .phone:hover {
+  background-color: #3EB349;
+  color: var(--socialHover);
 }
