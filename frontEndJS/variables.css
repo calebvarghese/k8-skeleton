@@ -1,6 +1,20 @@
 /* Global Variables */
 
 :root {
+    /* Page Height                (Idk how to make a parent scale of a child so I'm just using this for now.)*/
+    --gHight:          215px;     /* 3x = Page height, if you add a lot you'll need to increase this. */
+
+    /* Website Colors */
+    --backColor:    #EFEFEF;    /* Background */
+    --aColor:       #999999;    /* Left Pannel */
+    --bColor:       #EFEFEF;    /* Right Pannel */
+
+    --aTextColor:   #333333;    /* Left Pannel Text*/
+    --bTextColor:   #000000;    /* Right Pannel Text */
+
+    --socialIcon:   #666666;    /* Social links icon color */
+    --socialHover:  #FFFFFF;    /* Probably dont change, background will be the brand color. */
+
 
     /* Layout */
     --flex:         flex;
