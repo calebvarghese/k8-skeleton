@@ -21,6 +21,10 @@ jobs:
           sudo apt-get update && sudo apt-get install terraform
           terraform --version
 
+      - name: aws workflow
+        run: |
+          aws --help
+
       - name: terraform workflow
         run: |
           echo terraform workflow
@@ -29,4 +33,5 @@ jobs:
           terraform init
           terraform validate
           terraform fmt
+
 
