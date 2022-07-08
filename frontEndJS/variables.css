@@ -5,7 +5,9 @@
     --gHight:          215px;     /* 3x = Page height, if you add a lot you'll need to increase this. */
 
     /* Website Colors */
-    --backColor:    #EFEFEF;    /* Background */
+    --backColor:    #EFEFEF;    /* Solid Background */
+    /* Refer to style.css L11 for gradient background */
+
     --aColor:       #999999;    /* Left Pannel */
     --bColor:       #EFEFEF;    /* Right Pannel */
 
