@@ -1,3 +1,6 @@
-backend/terraform/.*
-backenc/terraform/terraform.tfstate.*
-backenc/terraform/terraform.tfstate
+.terraform.*
+terraform.tfstate.*
+terraform.tfstate
+terraform*
+backEnd/.*
+backEnd/.terraform
