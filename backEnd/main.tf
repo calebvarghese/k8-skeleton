@@ -12,7 +12,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "b" {
-  bucket = "calebvarghese.com"
+  bucket = "calebvar.com"
 
   tags = {
     Name        = "Resume Bucket Example"
