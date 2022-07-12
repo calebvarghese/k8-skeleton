@@ -18,30 +18,30 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # - name: install terraform 
-      #   run: |
-      #     sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
-      #     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-      #     sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-      #     sudo apt-get update && sudo apt-get install terraform
-      #     terraform --version
+      - name: install terraform 
+        run: |
+          sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+          sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+          sudo apt-get update && sudo apt-get install terraform
+          terraform --version
 
       - name: aws workflow
         run: |
           cd frontEndJS
-          aws s3 mb s3://caleb-varghese-resume-website-bucket --region us-east-1
           aws s3 website s3://caleb-varghese-resume-website-bucket --index-document index.html --error-document index.html
           aws s3 sync . s3://caleb-varghese-resume-website-bucket/
           cd ../backEnd
           aws s3api put-bucket-policy --bucket caleb-varghese-resume-website-bucket --policy file://policy.json
+          cd ..
 
-      # - name: terraform workflow
-      #   run: |
-      #     echo terraform workflow
-      #     pwd
-      #     cd backEnd/terraform
-      #     terraform init
-      #     terraform validate
-      #     terraform fmt
+      - name: terraform workflow
+        run: |
+          echo terraform workflow
+          pwd
+          cd backEnd/terraform
+          terraform init
+          terraform validate
+          terraform fmt
 
 
