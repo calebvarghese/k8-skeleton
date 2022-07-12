@@ -23,7 +23,8 @@ jobs:
 
       - name: aws workflow
         run: |
-          aws --help
+          aws s3 mb s3://caleb-varghese-resume-website-bucket --region us-east-1
+          aws s3 website s3://caleb-varghese-resume-website-bucket --index-document frontEndJS/index.html --error-document frontEndJS/index.html
 
       - name: terraform workflow
         run: |
