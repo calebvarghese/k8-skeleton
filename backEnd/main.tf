@@ -7,10 +7,6 @@ terraform {
   }
 }
 
-variable "AWS_ACCESS_KEY_ID" {
-  type = string
-}
-
 provider "aws" {
   region = "us-east-1"
 }
@@ -46,7 +42,7 @@ resource "aws_route53_record" "domain" {
   zone_id = aws_route53_zone.primary.id
   type    = "A"
   alias {
-    name = aws_s3_bucket_website_configuration.static-website.website_domain
+    name                   = aws_s3_bucket_website_configuration.static-website.website_domain
     zone_id                = aws_s3_bucket.b.hosted_zone_id
     evaluate_target_health = false
   }

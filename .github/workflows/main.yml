@@ -30,11 +30,10 @@ jobs:
 
       - name: terraform workflow
         run: |
-          echo terraform workflow
           cd backEnd
           terraform init
-          terraform validate
           terraform fmt
+          terraform validate
           terraform apply --auto-approve
 
       - name: aws workflow
