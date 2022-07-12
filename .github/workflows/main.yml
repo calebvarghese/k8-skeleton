@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches: 
-      - '**'
+      - 'main'
   workflow_dispatch:
 
 env:
@@ -43,6 +43,5 @@ jobs:
           aws s3 sync . s3://calebvar.com/
           cd ../backEnd
           aws s3api put-bucket-policy --bucket calebvar.com --policy file://policy.json
-          cd ..
 
 
