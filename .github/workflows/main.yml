@@ -18,26 +18,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: install terraform 
-        run: |
-          sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-          sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-          sudo apt-get update && sudo apt-get install terraform
-          terraform --version
+      # - name: install terraform 
+      #   run: |
+      #     sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+      #     curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+      #     sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+      #     sudo apt-get update && sudo apt-get install terraform
+      #     terraform --version
 
       - name: aws workflow
         run: |
-          aws s3 mb s3://caleb-varghese-resume-website-bucket --region us-east-1
-          aws s3 website s3://caleb-varghese-resume-website-bucket --index-document frontEndJS/index.html --error-document frontEndJS/index.html
-
-      - name: terraform workflow
-        run: |
-          echo terraform workflow
           pwd
-          cd backEnd/terraform
-          terraform init
-          terraform validate
-          terraform fmt
+          aws s3 mb s3://caleb-varghese-resume-website-bucket --region us-east-1
+          aws s3 website s3://caleb-varghese-resume-website-bucket --index-document ./frontEndJS/index.html --error-document frontEndJS/index.html
+
+      # - name: terraform workflow
+      #   run: |
+      #     echo terraform workflow
+      #     pwd
+      #     cd backEnd/terraform
+      #     terraform init
+      #     terraform validate
+      #     terraform fmt
 
 
