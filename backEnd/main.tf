@@ -44,7 +44,6 @@ resource "aws_route53_record" "domain" {
   type    = "A"
   alias {
     name = aws_s3_bucket_website_configuration.static-website.website_domain
-    # zone_id                = aws_s3_bucket_website_configuration.static-website.hosted_zone_id
     zone_id                = aws_s3_bucket.b.hosted_zone_id
     evaluate_target_health = false
   }
