@@ -30,7 +30,7 @@ jobs:
         run: |
           echo terraform workflow
           pwd
-          cd backEnd/terraform
+          cd backEnd
           terraform init
           terraform validate
           terraform fmt
