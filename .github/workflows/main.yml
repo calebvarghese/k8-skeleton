@@ -39,9 +39,9 @@ jobs:
       - name: aws workflow
         run: |
           cd frontEndJS
-          aws s3 website s3://calebvar.com --index-document index.html --error-document index.html
-          aws s3 sync . s3://calebvar.com/
+          aws s3 website s3://brianopdahl.com --index-document index.html --error-document index.html
+          aws s3 sync . s3://brianopdahl.com/
           cd ../backEnd
-          aws s3api put-bucket-policy --bucket calebvar.com --policy file://policy.json
+          aws s3api put-bucket-policy --bucket brianopdahl.com --policy file://policy.json
 
 
