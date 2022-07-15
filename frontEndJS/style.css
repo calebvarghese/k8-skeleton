@@ -12,9 +12,9 @@ body {
   /* background: var(--backColor); */
   font-family: 'Roboto', sans-serif;
 
-  background: linear-gradient(-45deg, #CCCCCC, #999999, #666666, #333333);
+  background: linear-gradient(-45deg, #a8a8a8, #999999, #666666, #333333, #000000);
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 60s ease infinite;
 }
 
 @keyframes gradient {
@@ -50,8 +50,7 @@ body {
     z-index: 15;
     display: var(--grid);
     display: inline-flex;
-    background-color: var(--aColor);
-    color: var(--aTextColor);
+    color: white;
 }
 
 #b {
@@ -60,9 +59,7 @@ body {
     padding: 0px 35px;
     display: var(--grid);
     display: inline-flex;
-    background-color: var(--bColor);
-    color: var(--bTextColor);
-    
+    color: white;
 }
 
 .container {
@@ -121,7 +118,7 @@ span b {
   font-size: 23px;
   display: inline-block;
   cursor: pointer;
-  color: var(--socialIcon);
+  color: white;
   text-decoration: none;
 }
 
