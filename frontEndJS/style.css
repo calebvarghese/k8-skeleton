@@ -53,6 +53,10 @@ body {
     color: white;
 }
 
+a:hover {
+  color: #ffffff
+}
+
 #b {
     grid-area: b;
     z-index: 15;
