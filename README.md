@@ -6,9 +6,8 @@ This website is meant to serve as a resume website for me. The frontend is built
 2. Container is pushed to personal AWS ECR. 
 3. Follow documentation to create kubectl secret as followed in [this medium article](https://medium.com/@danieltse/pull-the-docker-image-from-aws-ecr-in-kubernetes-dc7280d74904). Command should start like this:
 - kubectl create secret docker-registry regcred
-4. C
+4. Give chmod +x to ./startup.sh and ./shutdown.sh 
 
 ### Team/Collaborators
-Backend Work - Caleb Varghese(calebvarghese)
-
+Backend and K8s Work - Caleb Varghese(calebvarghese)
 Frontend Work - Brian Opdahl(briancantcode)
