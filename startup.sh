@@ -1,6 +1,6 @@
 #!/bin/bash
 
-minikube start
+# minikube start
 minikube addons enable metrics-server
 kubectl apply -f webapp.yaml
 osascript -e 'tell application "Terminal" to do script "minikube dashboard"'
