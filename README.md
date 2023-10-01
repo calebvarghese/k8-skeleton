@@ -1,5 +1,5 @@
 # Source
-But application in src folder and make sure it has an index.html file to point to in that folder.
+Put application in src folder and make sure it has an index.html file to point to in that folder.
 
 ## Kubernetes Deployment Notes
 1. Container is built on local machine 
