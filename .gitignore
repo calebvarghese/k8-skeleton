@@ -5,3 +5,4 @@ terraform*
 backEnd/.*
 backEnd/.terraform
 notepad.md
+.DS_Store
