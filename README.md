@@ -1,5 +1,5 @@
-# resumeSite
-This website is meant to serve as a resume website for me. The frontend is built using HTML, CSS, and JavaScript. The backend is built using AWS S3, Terraform, and GitHub Actions. The site can be accessed at [http://calebvar.com](http://calebvar.com) if website is up and running.
+# Source
+But application in src folder and make sure it has an index.html file to point to in that folder.
 
 ## Kubernetes Deployment Notes
 1. Container is built on local machine 
@@ -9,7 +9,3 @@ This website is meant to serve as a resume website for me. The frontend is built
 - kubectl create secret docker-registry regcred --docker-server=`<ECR URL>` --docker-username=AWS --docker-password="$(aws ecr get-login-password --region us-east-1)" --docker-email=`<Docker Email>`
 5. Give chmod +x to ./startup.sh and ./shutdown.sh 
 6. Local machine is UNIX/LINUX
-
-### Team/Collaborators
-Backend and K8s Work - Caleb Varghese(calebvarghese) \n
-Frontend Work - Brian Opdahl(briancantcode)
